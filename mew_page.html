@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio</title>
+    <style>
+        /* Общие стили для всего сайта */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('/Midterm/winterbackground.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Стили для фиксированной навигационной панели */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        /* Стили для активных и неактивных ссылок навигации */
+        nav ul li a.active {
+            color: #8a2be2; /* Фиолетовый цвет для активной ссылки */
+        }
+
+        nav ul li a.inactive {
+            color: #aaa; /* Серый цвет для неактивных ссылок */
+        }
+
+        /* Стили для секции Hero */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 10%;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 30px;
+            max-width: 800px;
+        }
+
+        .hero-btn {
+            padding: 12px 30px;
+            background-color: #8a2be2;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .hero-btn:hover {
+            background-color: #6a1cb0;
+        }
+
+        /* Стили для секции About */
+        .about {
+            padding: 100px 10%;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .about-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .profile-img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #8a2be2;
+            box-shadow: 0 0 20px rgba(138, 43, 226, 0.5);
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+
+        .about p {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .about blockquote {
+            font-style: italic;
+            border-left: 3px solid #8a2be2;
+            padding-left: 20px;
+            margin: 30px 0;
+        }
+
+        /* Стили для секции Skills */
+        .skills {
+            padding: 100px 10%;
+            min-height: 100vh;
+        }
+
+        .skills h2 {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .accordion-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .accordion-item {
+            margin-bottom: 15px;
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .accordion-header {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .accordion-header:hover {
+            background-color: rgba(138, 43, 226, 0.2);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        .accordion-content ul {
+            padding: 20px;
+            list-style-type: none;
+        }
+
+        .accordion-content ul li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .accordion-content ul li:last-child {
+            border-bottom: none;
+        }
+
+        .accordion-item.active .accordion-content {
+            max-height: 500px;
+        }
+
+        .accordion-item.active .accordion-header .arrow {
+            transform: rotate(180deg);
+        }
+
+        .arrow {
+            transition: transform 0.3s ease;
+        }
+
+        /* Стили для секции Projects */
+        .projects {
+            padding: 100px 10%;
+            min-height: 100vh;
+        }
+
+        .projects h2 {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .projects-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .project-card {
+            width: 200px;
+            height: 200px;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: scale(1.05);
+            border-color: #8a2be2;
+        }
+
+        .project-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .project-details {
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 800px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 20px 20px 0 0;
+            padding: 30px;
+            display: none;
+            z-index: 1001;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .project-details.active {
+            display: block;
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from { bottom: -100%; }
+            to { bottom: 0; }
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .project-title {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .project-status {
+            display: inline-block;
+            background-color: #8a2be2;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-bottom: 20px;
+        }
+
+        .project-description {
+            line-height: 1.6;
+        }
+
+        /* Стили для секции Contact */
+        .contact {
+            padding: 100px 10%;
+            min-height: 50vh;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+        }
+
+        .socials-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+            font-size: 24px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .social-link:hover {
+            transform: scale(1.1);
+            background-color: rgba(138, 43, 226, 0.3);
+        }
+
+        /* Адаптивность для мобильных устройств */
+        @media (max-width: 768px) {
+            .about-container {
+                flex-direction: column;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .projects-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .project-card {
+                width: 80%;
+                max-width: 300px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 5px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Фиксированная навигационная панель -->
+    <header>
+        <a href="#" class="logo">Portfolio</a>
+        <nav>
+            <ul>
+                <li><a href="#hero" class="nav-link active">About</a></li>
+                <li><a href="#projects" class="nav-link active">Projects</a></li>
+                <li><a href="#skills" class="nav-link active">Skills</a></li>
+                <li><a href="#contact" class="nav-link active">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Секция Hero с цитатой Марка Аврелия -->
+    <section id="hero" class="hero">
+        <h1>"You have power over your mind, not outside events. Realize this, and you will find strength." — Marcus Aurelius</h1>
+        <button class="hero-btn" onclick="scrollToSection('about')">About me</button>
+    </section>
+
+    <!-- Секция About с информацией о пользователе -->
+    <section id="about" class="about">
+        <div class="about-container">
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Profile Picture" class="profile-img">
+            </div>
+            <div class="about-text">
+                <h2>About Me</h2>
+                <p><strong>Fordham University: Class of 2026, BS in Psychology/Computer Science.</strong></p>
+                <p>Felicitations malefactors! I am a passionate individual with a unique blend of interests spanning psychology and computer science. My journey has been one of continuous learning and exploration, always seeking to understand the intricate connections between human behavior and technology.</p>
+                <p><strong>Hobbies:</strong> Reading philosophical texts, coding experimental projects, hiking in nature, practicing meditation, and exploring the intersection of art and technology.</p>
+                <blockquote>"As we speak, I'm actively applying for graduate programs, writing a book, and working on a startup with my Co-Founder (news about it soon!)."</blockquote>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция Skills с аккордеоном для категорий навыков -->
+    <section id="skills" class="skills">
+        <h2>Skills</h2>
+        <div class="accordion-container">
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <span>Languages</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="accordion-content">
+                    <ul>
+                        <li>English (Native)</li>
+                        <li>Spanish (Intermediate)</li>
+                        <li>French (Basic)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <span>Technical Skills</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="accordion-content">
+                    <ul>
+                        <li>JavaScript</li>
+                        <li>Python</li>
+                        <li>HTML/CSS</li>
+                        <li>React</li>
+                        <li>Node.js</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <span>Research & Analytics</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="accordion-content">
+                    <ul>
+                        <li>Statistical Analysis</li>
+                        <li>Data Visualization</li>
+                        <li>Experimental Design</li>
+                        <li>Qualitative Research</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция Projects с галереей проектов -->
+    <section id="projects" class="projects">
+        <h2>Projects</h2>
+        <div class="projects-container">
+            <div class="project-card" data-project="parallelai">
+                <div class="project-icon">🤖</div>
+                <div class="project-name">ParallelAI</div>
+            </div>
+            <div class="project-card" data-project="overcoffee">
+                <div class="project-icon">☕</div>
+                <div class="project-name">Over Coffee</div>
+            </div>
+            <div class="project-card" data-project="mindful">
+                <div class="project-icon">🧠</div>
+                <div class="project-name">Mindful App</div>
+            </div>
+            <div class="project-card" data-project="quantum">
+                <div class="project-icon">⚛️</div>
+                <div class="project-name">Quantum Notes</div>
+            </div>
+        </div>
+
+        <!-- Всплывающая панель с деталями проекта -->
+        <div class="project-details" id="projectDetails">
+            <button class="close-btn" onclick="closeProjectDetails()">×</button>
+            <h3 class="project-title" id="projectTitle">ParallelAI</h3>
+            <span class="project-status" id="projectStatus">IN DEVELOPMENT</span>
+            <p class="project-description" id="projectDescription">
+                ParallelAI is an innovative platform that leverages artificial intelligence to create personalized learning experiences. 
+                The system adapts to individual learning styles and paces, providing tailored content and feedback to optimize knowledge retention.
+            </p>
+        </div>
+    </section>
+
+    <!-- Секция Contact с ссылками на социальные сети -->
+    <section id="contact" class="contact">
+        <h2>Socials</h2>
+        <div class="socials-container">
+            <a href="#" class="social-link">📱</a>
+            <a href="#" class="social-link">📱</a>
+            <a href="#" class="social-link">📱</a>
+            <a href="#" class="social-link">📱</a>
+        </div>
+    </section>
+
+    <script>
+        // Функция для прокрутки к определенной секции
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Обновление активных ссылок навигации при прокрутке
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let currentSection = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 200) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                link.classList.add('inactive');
+                
+                if (link.getAttribute('href').substring(1) === currentSection) {
+                    link.classList.remove('inactive');
+                    link.classList.add('active');
+                }
+            });
+            
+            // Особый случай для секции Hero - все ссылки активны
+            if (currentSection === 'hero') {
+                navLinks.forEach(link => {
+                    link.classList.remove('inactive');
+                    link.classList.add('active');
+                });
+            }
+        });
+
+        // Функциональность аккордеона для секции Skills
+        const accordionHeaders = document.querySelectorAll('.accordion-header');
+        
+        accordionHeaders.forEach(header => {
+            header.addEventListener('click', function() {
+                const accordionItem = this.parentElement;
+                accordionItem.classList.toggle('active');
+            });
+        });
+
+        // Функциональность для отображения деталей проекта
+        const projectCards = document.querySelectorAll('.project-card');
+        const projectDetails = document.getElementById('projectDetails');
+        const projectTitle = document.getElementById('projectTitle');
+        const projectStatus = document.getElementById('projectStatus');
+        const projectDescription = document.getElementById('projectDescription');
+        
+        // Данные о проектах
+        const projectsData = {
+            parallelai: {
+                title: "ParallelAI",
+                status: "IN DEVELOPMENT",
+                description: "ParallelAI is an innovative platform that leverages artificial intelligence to create personalized learning experiences. The system adapts to individual learning styles and paces, providing tailored content and feedback to optimize knowledge retention."
+            },
+            overcoffee: {
+                title: "Over Coffee",
+                status: "COMPLETED",
+                description: "Over Coffee is a social networking app designed to facilitate meaningful connections between professionals. The platform matches users based on shared interests and schedules virtual coffee meetings to foster networking opportunities."
+            },
+            mindful: {
+                title: "Mindful App",
+                status: "IN DEVELOPMENT",
+                description: "Mindful App combines principles of cognitive behavioral therapy with meditation techniques to help users manage stress and anxiety. The app provides personalized mindfulness exercises and tracks progress over time."
+            },
+            quantum: {
+                title: "Quantum Notes",
+                status: "PLANNED",
+                description: "Quantum Notes is a revolutionary note-taking application that uses quantum-inspired algorithms to organize and connect ideas in non-linear ways. The tool helps users discover unexpected connections between concepts."
+            }
+        };
+        
+        projectCards.forEach(card => {
+            card.addEventListener('click', function() {
+                const projectId = this.getAttribute('data-project');
+                const projectData = projectsData[projectId];
+                
+                projectTitle.textContent = projectData.title;
+                projectStatus.textContent = projectData.status;
+                projectDescription.textContent = projectData.description;
+                
+                projectDetails.classList.add('active');
+            });
+        });
+        
+        // Функция для закрытия деталей проекта
+        function closeProjectDetails() {
+            projectDetails.classList.remove('active');
+        }
+    </script>
+</body>
+</html>

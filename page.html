@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Technical Assignment</title>
+    <link rel="stylesheet" href="style_page.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header id="navbar">
+        <nav>
+            <a href="#hero" class="nav-link active">Home</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#projects" class="nav-link">Projects</a>
+            <a href="#skills" class="nav-link">Skills</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </nav>
+    </header>
+
+    <section id="hero" class="section">
+        <div class="hero-content">
+            <h1>"You have power over your mind, not outside events. Realize this, and you will find strength."</h1>
+            <p>— Marcus Aurelius</p>
+            <a href="#about" class="btn">About me</a>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <h2>About Me</h2>
+        <div class="about-container">
+            <div class="about-image">
+                <img src="your-image.jpg" alt="Your Profile Picture">
+            </div>
+            <div class="about-text">
+                <p><strong>Fordham University: Class of 2026, BS in Psychology/Computer Science.</strong></p>
+                <p>My core philosophy is driven by curiosity and a commitment to personal growth. I enjoy merging the analytical side of Computer Science with the human-centric aspects of Psychology. Felicitations malefactors... you get the idea.</p>
+                <p><strong>Hobbies:</strong> Reading Stoic philosophy, competitive chess, and long-distance running.</p>
+            </div>
+        </div>
+        <blockquote class="additional-info">
+            As we speak, I'm actively applying for graduate programs, writing a book, and working on a startup with my Co-Founder (news about it soon!).
+        </blockquote>
+    </section>
+
+    <section id="projects" class="section">
+        <h2>Projects</h2>
+        <div class="projects-gallery">
+            <div class="project-card" data-project-id="parallelai">
+                <i class="fas fa-brain"></i>
+                <h3>ParallelAI</h3>
+            </div>
+            <div class="project-card" data-project-id="overcoffee">
+                <i class="fas fa-coffee"></i>
+                <h3>Over Coffee</h3>
+            </div>
+            <div class="project-card" data-project-id="project3">
+                <i class="fas fa-code"></i>
+                <h3>Project 3</h3>
+            </div>
+            <div class="project-card" data-project-id="project4">
+                <i class="fas fa-rocket"></i>
+                <h3>Project 4</h3>
+            </div>
+        </div>
+    </section>
+
+    <div id="project-details-panel" class="project-details hidden">
+        <button class="close-btn"><i class="fas fa-times"></i></button>
+        <h3 id="detail-title"></h3>
+        <span id="detail-status" class="status-tag"></span>
+        <p id="detail-description"></p>
+    </div>
+
+    <section id="skills" class="section skills-section">
+        <h2>Skills</h2>
+        <div class="accordion-container">
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <span>Languages</span>
+                    <i class="fas fa-chevron-down arrow-icon"></i>
+                </div>
+                <div class="accordion-content">
+                    <ul>
+                        <li>English (Native)</li>
+                        <li>Russian (Intermediate)</li>
+                        <li>JavaScript</li>
+                        <li>Python</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <span>Technical Skills</span>
+                    <i class="fas fa-chevron-down arrow-icon"></i>
+                </div>
+                <div class="accordion-content">
+                    <ul>
+                        <li>HTML5 & CSS3</li>
+                        <li>Git & GitHub</li>
+                        <li>Node.js (Basic)</li>
+                        <li>Machine Learning (Pandas, Scikit-learn)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <span>Research & Analytics</span>
+                    <i class="fas fa-chevron-down arrow-icon"></i>
+                </div>
+                <div class="accordion-content">
+                    <ul>
+                        <li>SPSS & R</li>
+                        <li>Statistical Analysis</li>
+                        <li>Data Visualization</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="section">
+        <h2>Socials</h2>
+        <div class="social-links-container">
+            <a href="https://t.me/yourusername1" target="_blank" class="social-icon"><i class="fab fa-telegram-plane"></i></a>
+            <a href="https://t.me/yourusername2" target="_blank" class="social-icon"><i class="fab fa-telegram-plane"></i></a>
+            <a href="https://t.me/yourusername3" target="_blank" class="social-icon"><i class="fab fa-telegram-plane"></i></a>
+            <a href="https://t.me/yourusername4" target="_blank" class="social-icon"><i class="fab fa-telegram-plane"></i></a>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
