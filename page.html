@@ -3,132 +3,199 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Technical Assignment</title>
-    <link rel="stylesheet" href="style_page.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Albert Einstein - Personal Portfolio</title>
+    <link rel="stylesheet" href="styling.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header id="navbar">
-        <nav>
-            <a href="#hero" class="nav-link active">Home</a>
-            <a href="#about" class="nav-link">About</a>
-            <a href="#projects" class="nav-link">Projects</a>
-            <a href="#skills" class="nav-link">Skills</a>
-            <a href="#contact" class="nav-link">Contact</a>
-        </nav>
-    </header>
+    <nav class="nav">
+        <ul class="nav-menu">
+            <li><a href="#about" class="nav-link">About Me</a></li>
+            <li><a href="#skills" class="nav-link">Skills</a></li>
+            <li><a href="#projects" class="nav-link">Projects</a></li>
+            <li><a href="#socials" class="nav-link">Socials</a></li>
+        </ul>
+    </nav>
 
-    <section id="hero" class="section">
+    <section class="hero" id="hero">
+        <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1>"You have power over your mind, not outside events. Realize this, and you will find strength."</h1>
-            <p>— Marcus Aurelius</p>
-            <a href="#about" class="btn">About me</a>
+            <blockquote class="hero-quote fade-in">
+                "You have power over your mind, not outside events. Realize this, and you will find strength."
+                <cite>— Marcus Aurelius</cite>
+            </blockquote>
+            <a href="#about" class="hero-button">About Me</a>
         </div>
     </section>
 
-    <section id="about" class="section">
-        <h2>About Me</h2>
-        <div class="about-container">
-            <div class="about-image">
-                <img src="your-image.jpg" alt="Your Profile Picture">
-            </div>
-            <div class="about-text">
-                <p><strong>Fordham University: Class of 2026, BS in Psychology/Computer Science.</strong></p>
-                <p>My core philosophy is driven by curiosity and a commitment to personal growth. I enjoy merging the analytical side of Computer Science with the human-centric aspects of Psychology. Felicitations malefactors... you get the idea.</p>
-                <p><strong>Hobbies:</strong> Reading Stoic philosophy, competitive chess, and long-distance running.</p>
-            </div>
-        </div>
-        <blockquote class="additional-info">
-            As we speak, I'm actively applying for graduate programs, writing a book, and working on a startup with my Co-Founder (news about it soon!).
-        </blockquote>
-    </section>
-
-    <section id="projects" class="section">
-        <h2>Projects</h2>
-        <div class="projects-gallery">
-            <div class="project-card" data-project-id="parallelai">
-                <i class="fas fa-brain"></i>
-                <h3>ParallelAI</h3>
-            </div>
-            <div class="project-card" data-project-id="overcoffee">
-                <i class="fas fa-coffee"></i>
-                <h3>Over Coffee</h3>
-            </div>
-            <div class="project-card" data-project-id="project3">
-                <i class="fas fa-code"></i>
-                <h3>Project 3</h3>
-            </div>
-            <div class="project-card" data-project-id="project4">
-                <i class="fas fa-rocket"></i>
-                <h3>Project 4</h3>
-            </div>
-        </div>
-    </section>
-
-    <div id="project-details-panel" class="project-details hidden">
-        <button class="close-btn"><i class="fas fa-times"></i></button>
-        <h3 id="detail-title"></h3>
-        <span id="detail-status" class="status-tag"></span>
-        <p id="detail-description"></p>
-    </div>
-
-    <section id="skills" class="section skills-section">
-        <h2>Skills</h2>
-        <div class="accordion-container">
-            <div class="accordion-item">
-                <div class="accordion-header">
-                    <span>Languages</span>
-                    <i class="fas fa-chevron-down arrow-icon"></i>
+    <section class="section" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image-container">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiD_AWY-6OAze4jmDxviY8y3F072XKpC1gaA&s" alt="Albert Einstein" class="about-image">
                 </div>
-                <div class="accordion-content">
-                    <ul>
-                        <li>English (Native)</li>
-                        <li>Russian (Intermediate)</li>
-                        <li>JavaScript</li>
-                        <li>Python</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <div class="accordion-header">
-                    <span>Technical Skills</span>
-                    <i class="fas fa-chevron-down arrow-icon"></i>
-                </div>
-                <div class="accordion-content">
-                    <ul>
-                        <li>HTML5 & CSS3</li>
-                        <li>Git & GitHub</li>
-                        <li>Node.js (Basic)</li>
-                        <li>Machine Learning (Pandas, Scikit-learn)</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <div class="accordion-header">
-                    <span>Research & Analytics</span>
-                    <i class="fas fa-chevron-down arrow-icon"></i>
-                </div>
-                <div class="accordion-content">
-                    <ul>
-                        <li>SPSS & R</li>
-                        <li>Statistical Analysis</li>
-                        <li>Data Visualization</li>
-                    </ul>
+                <div class="about-text-container">
+                    <h2 class="section-title">Albert Einstein</h2>
+                    <p class="about-education">ETH Zurich: Diploma for Teaching Mathematics and Physics (1900); Doctor of Philosophy, University of Zurich (1905).</p>
+                    <p class="about-intro">He's theoretical physicist who developed the theory of relativity, one of the two pillars of modern physics. He's work also includes significant contributions to quantum theory, notably the explanation of the photoelectric effect, for which he was awarded the Nobel Prize in Physics in 1921.</p>
+                    <p class="about-hobbies"><strong>Hobbies:</strong> Playing the Violin, Sailing, Philosophy, Pondering the nature of light and gravity, Correspondence with colleagues.</p>
+                    <p class="about-current">He's famous formula E=mc^2 continues to be a cornerstone of nuclear physics. He is known not only for my scientific achievements but also for his humanitarian views and commitment to peace and social justice.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer id="contact" class="section">
-        <h2>Socials</h2>
-        <div class="social-links-container">
-            <a href="https://t.me/yourusername1" target="_blank" class="social-icon"><i class="fab fa-telegram-plane"></i></a>
-            <a href="https://t.me/yourusername2" target="_blank" class="social-icon"><i class="fab fa-telegram-plane"></i></a>
-            <a href="https://t.me/yourusername3" target="_blank" class="social-icon"><i class="fab fa-telegram-plane"></i></a>
-            <a href="https://t.me/yourusername4" target="_blank" class="social-icon"><i class="fab fa-telegram-plane"></i></a>
-        </div>
-    </footer>
+    <section class="section section-alt" id="skills">
+        <div class="container">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-accordion-container">
+                <div class="skill-accordion-card accordion-card">
+                    <div class="accordion-header">
+                        <div class="accordion-title-wrapper">
+                            <h3 class="skill-accordion-title">Theoretical Physics</h3>
+                        </div>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <ul class="skill-list">
+                            <li>General Relativity</li>
+                            <li>Special Relativity</li>
+                            <li>Quantum Theory</li>
+                            <li>Unified Field Theory</li>
+                        </ul>
+                    </div>
+                </div>
 
-    <script src="scripts.js"></script>
+                <div class="skill-accordion-card accordion-card">
+                    <div class="accordion-header">
+                        <div class="accordion-title-wrapper">
+                            <h3 class="skill-accordion-title">Mathematics</h3>
+                        </div>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="skill-subsection">
+                            <ul class="skill-list">
+                                <li>Differential Geometry</li>
+                                <li>Tensors</li>
+                                <li>Non-Euclidean Space</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-accordion-card accordion-card">
+                    <div class="accordion-header">
+                        <div class="accordion-title-wrapper">
+                            <h3 class="skill-accordion-title">Scientific Interests</h3>
+                        </div>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="skill-subsection">
+                            <ul class="skill-list">
+                                <li>Philosophy of Science</li>
+                                <li>Cosmology</li>
+                                <li>Atomic Theory</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="projects">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+
+            <div class="projects-logo-grid">
+
+                <div class="project-logo-item" data-project="relativity">
+                    <div class="project-logo-container project-text-logo">
+                        relativity
+                    </div>
+                </div>
+
+                <div class="project-logo-item" data-project="photoelectric">
+                    <div class="project-logo-container">
+                        photoelectric
+                    </div>
+                </div>
+
+                <div class="project-logo-item" data-project="brownian">
+                    <div class="project-logo-container">
+                        brownian
+                    </div>
+                </div>
+
+                <div class="project-logo-item" data-project="massenergy">
+                    <div class="project-logo-container">
+                        massenergy
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-details-panel" id="projectDetailsPanel">
+                <button class="project-close-btn" id="closeProjectDetails" aria-label="Close details">×</button>
+
+                <div class="project-details-content" data-project-content="relativity">
+                    <h3 class="project-details-title">General Relativity</h3>
+                    <p class="project-details-description">Einstein’s theory explaining gravity as curvature of spacetime.</p>
+                </div>
+
+                <div class="project-details-content" data-project-content="photoelectric">
+                    <h3 class="project-details-title">Photoelectric Effect</h3>
+                    <span class="project-tag">Published</span>
+                    <p class="project-details-description">Explanation of electron emission proving the quantum nature of light.</p>
+                </div>
+
+                <div class="project-details-content" data-project-content="brownian">
+                    <h3 class="project-details-title">Brownian Motion</h3>
+                    <span class="project-tag">Published</span>
+                    <p class="project-details-description">Statistical proof of molecular/atomic motion.</p>
+                </div>
+
+                <div class="project-details-content" data-project-content="massenergy">
+                    <h3 class="project-details-title">E = mc²</h3>
+                    <span class="project-tag">Published</span>
+                    <p class="project-details-description">The equivalence of mass and energy — one of the most iconic equations.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <section class="section" id="socials">
+        <div class="container">
+            <h2 class="section-title">Socials</h2>
+
+            <div class="socials-grid">
+                <div class="socials-icons">
+
+                    <a href="https://t.me/link1" class="social-link" aria-label="Telegram 1">
+                        <img src="telegram.png" class="social-img" alt="Telegram">
+                    </a>
+
+                    <a href="https://t.me/link2" class="social-link" aria-label="Telegram 2">
+                        <img src="telegram.png" class="social-img" alt="Telegram">
+                    </a>
+
+                    <a href="https://t.me/link3" class="social-link" aria-label="Telegram 3">
+                        <img src="telegram.png" class="social-img" alt="Telegram">
+                    </a>
+
+                    <a href="https://t.me/link4" class="social-link" aria-label="Telegram 4">
+                        <img src="telegram.png" class="social-img" alt="Telegram">
+                    </a>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <script src="scripting.js"></script>
 </body>
 </html>
